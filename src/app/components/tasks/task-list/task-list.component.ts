@@ -6,7 +6,6 @@ import { ToastrService } from 'ngx-toastr'
 
 //models
 import { Task } from '../../../models/task';
-import { ToastrModule } from 'ngx-toastr';
 
 @Component({
   selector: 'app-task-list',
@@ -42,8 +41,9 @@ export class TaskListComponent implements OnInit {
 
   //Eliminar tarea
   deleteTask($key: string){
-    this.taskService.deleteTask($key)
-    this.toastr.success("Tarea eliminada!", "Operación")
+    if(confirm('Esta segurade querer eliminar esta terea?')){
+      this.taskService.deleteTask($key)
+      this.toastr.success("Tarea eliminada!", "Operación")
+    }
   }
-
 }

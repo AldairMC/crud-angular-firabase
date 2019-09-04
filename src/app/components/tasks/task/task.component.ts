@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 //servicio
 import { TaskService } from '../../../services/task.service'
+import { ToastrService } from 'ngx-toastr'
 
 //import ngForm para el reset
 import { NgForm } from '@angular/forms';
@@ -16,7 +17,10 @@ import  { Task } from '../../../models/task'
 })
 export class TaskComponent implements OnInit {
 
-  constructor(private taskService: TaskService) { }
+  constructor(
+    private taskService: TaskService,
+    private toastr: ToastrService
+    ) { }
 
   ngOnInit() {
     this.taskService.getTasks();
@@ -27,11 +31,12 @@ export class TaskComponent implements OnInit {
   enviarDatos(taskForm: NgForm){
     if(taskForm.value.$key == null){
       this.taskService.insertTask(taskForm.value)
+      this.toastr.success("Tarea Creada!", "Operación")
     }else{
       this.taskService.updateTask(taskForm.value);
+      this.toastr.success("Tarea Actualizada!", "Operación")
     }
     this.resetForm(taskForm); 
-    
   }
 
 
