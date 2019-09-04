@@ -5,7 +5,6 @@ import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 
 //Required Task models
 import { Task } from '../models/task';
-import { $ } from 'protractor';
 
 @Injectable({
   providedIn: 'root'
@@ -20,7 +19,7 @@ export class TaskService {
   constructor(private firebase: AngularFireDatabase) { }
 
   //Obtener todas las tareas desde firebase
-  getTask(){
+  getTasks(){
     //Obtener los elementos de fire
     //Guardandolo en la collecion `tasks`
     return this.TaskList = this.firebase.list('tasks')

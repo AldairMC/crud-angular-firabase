@@ -2,9 +2,11 @@ import { Component, OnInit } from '@angular/core';
 
 //service
 import { TaskService } from '../../../services/task.service'
+import { ToastrService } from 'ngx-toastr'
 
 //models
 import { Task } from '../../../models/task';
+import { ToastrModule } from 'ngx-toastr';
 
 @Component({
   selector: 'app-task-list',
@@ -16,7 +18,8 @@ export class TaskListComponent implements OnInit {
   taskList: Task[];
 
   constructor(
-    private taskService: TaskService
+    private taskService: TaskService,
+    private toastr: ToastrService
   ){}
 
   ngOnInit() {
@@ -32,12 +35,15 @@ export class TaskListComponent implements OnInit {
       })
   }
 
+  //Editar tarea
   editTask(task: Task){
     this.taskService.selectedTask = Object.assign({}, task);
   }
 
+  //Eliminar tarea
   deleteTask($key: string){
     this.taskService.deleteTask($key)
+    this.toastr.success("Tarea eliminada!", "Operación")
   }
 
 }
