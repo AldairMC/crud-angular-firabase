@@ -30,16 +30,18 @@ export class TaskService {
     this.TaskList.push({
       title: task.title,
       description: task.description,
-      priority: task.priority
+      priority: task.priority,
+      date: task.date
     });
   }
 
-  //Actualizar task 
+  //Actualizar task
   updateTask(task: Task){
     this.TaskList.update(task.$key, {
       title: task.title,
       description: task.description,
-      priority: task.priority
+      priority: task.priority,
+      date: task.date
     });
   }
 
