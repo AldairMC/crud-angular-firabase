@@ -32,4 +32,12 @@ export class TaskListComponent implements OnInit {
       })
   }
 
+  editTask(task: Task){
+    this.taskService.selectedTask = Object.assign({}, task);
+  }
+
+  deleteTask($key: string){
+
+  }
+
 }

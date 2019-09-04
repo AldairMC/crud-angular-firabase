@@ -25,8 +25,13 @@ export class TaskComponent implements OnInit {
 
   // submit del formulario
   enviarDatos(taskForm: NgForm){
-    this.taskService.insertTask(taskForm.value);
-    this.resetForm(taskForm);
+    if(taskForm.value.$key == null){
+      this.taskService.insertTask(taskForm.value)
+    }else{
+      this.taskService.updateTask(taskForm.value);
+    }
+    this.resetForm(taskForm); 
+    
   }
 
 

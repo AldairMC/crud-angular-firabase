@@ -2,6 +2,7 @@
     <h1 class="text-center mt-3">Add Task</h1>
     <div class="card-body">
         <form #formTask="ngForm" (ngSubmit)="enviarDatos(formTask)">
+            <input type="hidden" name="$key" #$key="ngModel" [(ngModel)]="taskService.selectedTask.$key">
             <div class="form-group">
                 <label>Title</label>
                 <input 
