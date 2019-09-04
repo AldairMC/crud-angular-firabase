@@ -1,0 +1,22 @@
+<div class="card">
+    <h1 class="text-center mt-3">List Tasks</h1>
+    <div class="card-body">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Description</th>
+                    <th>Priority</th>
+                    <th>Accions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let task of taskList">
+                    <td>{{ task.title }}</td>
+                    <td>{{ task.description }}</td>
+                    <td>{{ task.priority }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
