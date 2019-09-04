@@ -37,7 +37,7 @@ export class TaskListComponent implements OnInit {
   }
 
   deleteTask($key: string){
-
+    this.taskService.deleteTask($key)
   }
 
 }
